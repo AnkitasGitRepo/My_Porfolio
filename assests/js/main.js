@@ -38,8 +38,18 @@ const sendEmail =(e) => {
         //show message
         contactMessage.textContent='Write all the input feilds';
     }else{
-        //serviceID
-        emailjs.sendForm('service_javv6hj','','')
+        //serviceID-templateID-#form-publickey
+        emailjs.sendForm('service_javv6hj','template_dtv1wkz','contact-form','8RhmpaLDW5qjHGsI7')
+        .then(() => {
+            //show message and color, window + dot to open emoji
+           contactMessage.classList.add('color-light');
+           contactMessage.textContent ='Message sent ';
+
+           //remove message after 5 seconds
+           setTimeout(() =>{
+            contactMessage.textContent ='';
+           }, 5000);
+        });
     }
 
 };
